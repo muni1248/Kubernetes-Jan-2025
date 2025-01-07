@@ -1,0 +1,11 @@
+Load balancing algorithms are essential for distributing network traffic efficiently across multiple servers. They can be broadly categorized into static and dynamic algorithms:
+Static Load Balancing Algorithms
+1.	Round Robin: Distributes traffic sequentially across a list of servers.
+2.	Weighted Round Robin: Assigns different weights to servers based on their capacity, distributing more traffic to higher-capacity servers.
+3.	IP Hash: Uses a hash of the client's IP address to determine which server will handle the request.
+Dynamic Load Balancing Algorithms
+1.	Least Connection: Directs traffic to the server with the fewest active connections.
+2.	Weighted Least Connection: Similar to least connection but considers server capacity by assigning weights.
+3.	Least Response Time: Routes traffic to the server with the quickest response time.
+4.	Resource-Based: Considers the current resource availability (CPU, memory) of each server before distributing traffic
+These algorithms help ensure that no single server becomes overwhelmed, improving overall system performance and reliability. Do you have a specific scenario in mind where you need to implement load balancing?
