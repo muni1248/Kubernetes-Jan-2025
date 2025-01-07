@@ -1,3 +1,38 @@
 what is ingress in kubernetes:
 An API object that manages external access to the services in a cluster, typically HTTP.
 Ingress may provide load balancing, SSL termination and name-based virtual hosting.
+------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+In Kubernetes, an Ingress is an API object that manages external access to services within a cluster, typically HTTP and HTTPS traffic. It provides a way to expose services to the outside world and can handle load balancing, SSL termination, and name-based virtual hosting.
+Key Features of Ingress:
+1.	Path-based Routing: Routes traffic to different services based on the URL path.
+2.	Host-based Routing: Routes traffic to different services based on the host name.
+3.	TLS/SSL Termination: Manages SSL certificates and terminates SSL/TLS connections.
+4.	Load Balancing: Distributes incoming traffic across multiple backend services.
+Example of an Ingress Resource:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: example-service
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - example.com
+    secretName: example-tls
+In this example:
+•	Traffic to example.com is routed to the example-service on port 80.
+•	TLS termination is handled using the example-tls secret.
+Ingress controllers, such as NGINX, Traefik, or HAProxy, are required to implement the Ingress resource and manage the routing.
+
